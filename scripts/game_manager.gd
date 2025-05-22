@@ -79,7 +79,7 @@ func end_battle():
 
 	emit_signal("battle_ended")
 
-func set_owners_recursive(node: Node, owner: Node):
+func set_owners_recursive(node: Node, new_owner: Node):
 	for child in node.get_children():
-		child.set_owner(owner)
-		set_owners_recursive(child, owner)
+		child.set_owner(new_owner)
+		set_owners_recursive(child, new_owner)

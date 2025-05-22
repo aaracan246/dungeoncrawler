@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://xvq64rec74h"]
+
+[ext_resource type="PackedScene" uid="uid://f0qe82uwfl57" path="res://scenes/combat_ui.tscn" id="1_ewcrw"]
+[ext_resource type="PackedScene" uid="uid://citof13tii0sq" path="res://scenes/battle.tscn" id="2_su243"]
+[ext_resource type="PackedScene" uid="uid://d2rh6dfunt55x" path="res://scenes/player_battle.tscn" id="3_s2kjw"]
+[ext_resource type="PackedScene" uid="uid://bicct4ldobpiq" path="res://scenes/enemy.tscn" id="4_xilsy"]
+[ext_resource type="Script" path="res://scenes/combat_manager.gd" id="5_0k5gk"]
+[ext_resource type="Script" path="res://char_stats.gd" id="5_e27de"]
+
+[sub_resource type="Resource" id="Resource_kpqnj"]
+script = ExtResource("5_e27de")
+max_hp = 100
+current_hp = 100
+max_mana = 100
+current_mana = 100
+attack = 15
+defense = 5
+speed = 3
+
+[sub_resource type="Resource" id="Resource_b61m0"]
+script = ExtResource("5_e27de")
+max_hp = 25
+current_hp = 25
+max_mana = 100
+current_mana = 100
+attack = 15
+defense = 10
+speed = 1
+
+[node name="battlescene_UI" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+
+[node name="combat_UI" parent="." instance=ExtResource("1_ewcrw")]
+top_level = true
+z_index = 10
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+grow_horizontal = 1
+
+[node name="combatManager" type="Node" parent="."]
+script = ExtResource("5_0k5gk")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(720, 240)
+render_target_update_mode = 4
+
+[node name="battle" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_su243")]
+script = null
+
+[node name="PlayerBattle" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_s2kjw")]
+stats = SubResource("Resource_kpqnj")
+
+[node name="HobGob" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_xilsy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59843, -3.64793)
+stats = SubResource("Resource_b61m0")

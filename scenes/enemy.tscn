@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bicct4ldobpiq"]
+
+[ext_resource type="Script" path="res://scenes/battle_enemy.gd" id="1_tkplg"]
+[ext_resource type="Texture2D" uid="uid://bqwpyldg0mqys" path="res://assets/props/Enemies-BoboTheHobo192.png" id="2_bh5t8"]
+
+[node name="HobGob" type="Node3D"]
+script = ExtResource("1_tkplg")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.0538117, 0.180303)
+texture = ExtResource("2_bh5t8")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Sprite3D"]
+light_energy = 0.25
