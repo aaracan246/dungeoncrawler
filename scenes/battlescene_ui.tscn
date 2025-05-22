@@ -74,3 +74,6 @@ stats = SubResource("Resource_kpqnj")
 [node name="HobGob" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_xilsy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59843, -3.64793)
 stats = SubResource("Resource_b61m0")
+
+[connection signal="attack_pressed" from="combat_UI" to="combatManager" method="_on_attack_pressed"]
+[connection signal="pass_pressed" from="combat_UI" to="combatManager" method="_on_pass_pressed"]

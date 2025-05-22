@@ -41,11 +41,18 @@ func start_battle():
 	emit_signal("battle_started")
 
 	# Cambiamos a escena de batalla
-	get_tree().change_scene_to_file("res://scenes/battle.tscn")
+	get_tree().change_scene_to_file("res://scenes/battlescene_ui.tscn")
 
 	# Para pruebas: terminar combate automáticamente tras 2s
-	await get_tree().create_timer(2.0).timeout
-	end_battle()
+	#await get_tree().create_timer(2.0).timeout
+	#end_battle()
+	await get_tree().process_frame
+	await get_tree().process_frame 
+	var combat_manager = get_tree().current_scene.get_node_or_null("combatManager")
+	if combat_manager:
+		combat_manager.connect("battle_ended", Callable(self, "_on_battle_ended"))
+	else:
+		push_error("No se encontró CombatManager en la escena de batalla")
 
 func end_battle():
 	print("Restaurando estado guardado...")
@@ -78,6 +85,10 @@ func end_battle():
 		print("⚠ No se encontró ningún nodo con el grupo 'player'")
 
 	emit_signal("battle_ended")
+
+func _on_battle_ended(winner: String):
+	print("⚔ Combate terminado. Ganador:", winner)
+	end_battle()
 
 func set_owners_recursive(node: Node, new_owner: Node):
 	for child in node.get_children():
