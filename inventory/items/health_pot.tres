@@ -5,5 +5,8 @@
 
 [resource]
 script = ExtResource("1_n5hnm")
-name = "healthPot"
+name = "health_pot"
 texture = ExtResource("2_7rnk5")
+heal_amount = 35
+mana_amount = 0
+uses_left = 3

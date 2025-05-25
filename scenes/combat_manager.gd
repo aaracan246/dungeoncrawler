@@ -33,7 +33,6 @@ func start_turn():
 		enemy_turn()
 
 func _on_attack_pressed():
-	print("yeye")
 	player.attack(enemy)
 	if player == null:
 		print("Player null")
@@ -65,15 +64,11 @@ func check_battle_state():
 		emit_signal("battle_ended", "player")
 
 func ensure_nodes_ready():
-	print("Hola")
 	while not get_node_or_null("../SubViewportContainer/SubViewport/PlayerBattle"):
-		print("Hola2")
 		await get_tree().process_frame
 	while not get_node_or_null("../SubViewportContainer/SubViewport/HobGob"):
-		print("Hola3")
 		await get_tree().process_frame
 	while not get_node_or_null("../combat_UI"):
-		print("Hola4")
 		await get_tree().process_frame
 
 	player = get_node("../SubViewportContainer/SubViewport/PlayerBattle")

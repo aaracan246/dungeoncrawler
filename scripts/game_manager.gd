@@ -82,12 +82,12 @@ func end_battle():
 	if players.size() > 0:
 		players[0].global_transform = previous_player_transform
 	else:
-		print("⚠ No se encontró ningún nodo con el grupo 'player'")
+		print("No se encontró ningún nodo con el grupo 'player'")
 
 	emit_signal("battle_ended")
 
 func _on_battle_ended(winner: String):
-	print("⚔ Combate terminado. Ganador:", winner)
+	print("Combate terminado. Ganador:", winner)
 	end_battle()
 
 func set_owners_recursive(node: Node, new_owner: Node):

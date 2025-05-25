@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://0g3jxoqils0t"]
+
+[ext_resource type="Script" path="res://scenes/inventory_ui.gd" id="1_j25w4"]
+[ext_resource type="Script" path="res://inventory/inventory_item.gd" id="2_cx8ec"]
+[ext_resource type="PackedScene" uid="uid://nxqhawkq380i" path="res://scenes/item_slot.tscn" id="2_orgc5"]
+[ext_resource type="Script" path="res://inventory/inventory.gd" id="3_3roc2"]
+[ext_resource type="Resource" uid="uid://dfvt675fwgmd8" path="res://inventory/items/health_pot.tres" id="3_6nd52"]
+[ext_resource type="Texture2D" uid="uid://dbcvdl7v4gpge" path="res://assets/props/ManaPot.png" id="4_fo4gn"]
+
+[sub_resource type="Resource" id="Resource_n4d58"]
+resource_name = "mana_pot"
+script = ExtResource("2_cx8ec")
+name = "mana_pot"
+texture = ExtResource("4_fo4gn")
+heal_amount = 0
+mana_amount = 15
+uses_left = 3
+
+[sub_resource type="Resource" id="Resource_a7k5e"]
+script = ExtResource("3_3roc2")
+items = Array[ExtResource("2_cx8ec")]([ExtResource("3_6nd52"), SubResource("Resource_n4d58")])
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j25w4")
+inventory = SubResource("Resource_a7k5e")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+
+[node name="ItemSlot" parent="GridContainer" instance=ExtResource("2_orgc5")]
+layout_mode = 2
