@@ -83,5 +83,6 @@ z_index = 11
 layout_mode = 1
 player = NodePath("../SubViewportContainer/SubViewport/PlayerBattle")
 
+[connection signal="ability_pressed" from="combat_UI" to="combatManager" method="_on_ability_pressed"]
 [connection signal="attack_pressed" from="combat_UI" to="combatManager" method="_on_attack_pressed"]
 [connection signal="pass_pressed" from="combat_UI" to="combatManager" method="_on_pass_pressed"]

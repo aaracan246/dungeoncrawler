@@ -20,6 +20,10 @@ offset_bottom = 40.0
 layout_mode = 2
 text = "Attack"
 
+[node name="AbilityButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Ability"
+
 [node name="PassButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Pass"

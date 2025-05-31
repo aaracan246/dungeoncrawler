@@ -3,6 +3,7 @@ class_name battle_player
 
 @export var stats: CharacterStats
 @export var inv: Inv
+@export var abilities: Array[Ability]
 
 func attack(target: Node):
 	var damage = stats.attack - target.stats.defense
@@ -20,3 +21,15 @@ func heal(amount: int):
 func restore_mana(amount: int):
 	stats.current_mana += amount
 	stats.current_mana = clamp(stats.current_mana, 0, stats.max_mana)
+
+func use_ability(index: int, target: Node):
+	if index >= abilities.size():
+		print("Habilidad inválida")
+		return
+	var ability = abilities[index]
+	if stats.current_mana >= ability.mana_cost:
+		stats.current_mana -= ability.mana_cost
+		target.receive_damage(ability.damage)
+		print("Usaste la habilidad: ", ability.name, " e hiciste ", ability.damage, " de daño.")
+	else:
+		print("No hay suficiente maná para usar ", ability.name)

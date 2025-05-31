@@ -22,7 +22,7 @@ func _ready():
 	print("Player stats: ", player.stats)
 	print("Enemy stats: ", enemy.stats)
 	
-	emit_signal("ready_for_connection") #Testing
+	emit_signal("ready_for_connection")
 	
 	start_turn()
 
@@ -38,6 +38,13 @@ func _on_attack_pressed():
 		print("Player null")
 	if enemy == null:
 		print("Enemy null")
+	check_battle_state()
+	end_turn()
+
+func _on_ability_pressed():
+	print("Player al usar habilidad:", player)
+	print("Fireball")
+	player.use_ability(0, enemy)
 	check_battle_state()
 	end_turn()
 
