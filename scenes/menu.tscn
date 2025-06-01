@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3hbw0lvxq02d"]
+
+[ext_resource type="PackedScene" uid="uid://d10244sk3xgmq" path="res://scenes/hallway_for_menu.tscn" id="1_7pa4g"]
+[ext_resource type="Script" path="res://scripts/menu_options.gd" id="1_41c3t"]
+
+[node name="Menu" type="Control"]
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_41c3t")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+z_index = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 35
+
+[node name="Options" type="VBoxContainer" parent="MarginContainer"]
+z_index = 10
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Continue" type="Button" parent="MarginContainer/Options"]
+layout_mode = 2
+text = "Continue"
+
+[node name="NewGame" type="Button" parent="MarginContainer/Options"]
+layout_mode = 2
+text = "New Game"
+
+[node name="Quit" type="Button" parent="MarginContainer/Options"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Node3D"]
+z_index = -5
+offset_left = -93.0
+offset_top = -158.0
+offset_right = 419.0
+offset_bottom = 354.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="SubViewport" type="SubViewport" parent="Node3D/SubViewportContainer"]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="HallwayForMenu" parent="Node3D/SubViewportContainer/SubViewport" instance=ExtResource("1_7pa4g")]
+
+[connection signal="pressed" from="MarginContainer/Options/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="MarginContainer/Options/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="MarginContainer/Options/Quit" to="." method="_on_quit_pressed"]
