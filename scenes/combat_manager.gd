@@ -11,6 +11,7 @@ var enemy: Node = null
 var ui: Node = null
 
 var is_player_turn = true
+var enemy_turn_counter := 0
 
 func _ready():
 	await get_tree().process_frame
@@ -43,7 +44,7 @@ func _on_attack_pressed():
 
 func _on_ability_pressed():
 	print("Player al usar habilidad:", player)
-	print("Fireball")
+	print("Bite")
 	player.use_ability(0, enemy)
 	check_battle_state()
 	end_turn()
@@ -58,7 +59,14 @@ func end_turn():
 func enemy_turn():
 	print("¡El enemigo va a atacar!")
 	await get_tree().create_timer(1.0).timeout
-	enemy.attack(player)
+	
+	enemy_turn_counter += 1
+	
+	if enemy_turn_counter % 4 == 0:
+		print("¡Ataque especial en camino!")
+		enemy.special_attack(player)
+	else:
+		enemy.attack(player)
 	check_battle_state()
 	end_turn()
 

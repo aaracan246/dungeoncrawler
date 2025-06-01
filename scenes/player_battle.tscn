@@ -9,6 +9,7 @@ script = ExtResource("2_cro8o")
 name = "Rain of fire"
 mana_cost = 5
 damage = 20
+healing = 0
 icon = ExtResource("3_ko76d")
 
 [node name="PlayerBattle" type="Node3D"]

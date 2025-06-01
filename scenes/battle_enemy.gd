@@ -8,6 +8,19 @@ func attack(target: Node):
 	damage = max(damage, 0)
 	target.receive_damage(damage)
 
+func special_attack(target: Node):
+	var damage = (stats.attack + 10) - target.stats.defense
+	damage = max(damage, 0)
+	target.receive_damage(damage)
+
 func receive_damage(amount: int):
 	stats.current_hp -= amount
+	show_damage_text(amount)
 	print("Enemigo recibió ", amount, " de daño. HP actual: ", stats.current_hp)
+
+func show_damage_text(amount: int):
+	var floating_text = get_tree().get_root().get_node("battlescene_UI/FloatingText")
+	if floating_text:
+		floating_text.start(str(amount), Vector2(160, 108))
+	else:
+		print("No se ha encontrado el nodo requerido.")

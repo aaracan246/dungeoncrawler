@@ -30,6 +30,15 @@ func use_ability(index: int, target: Node):
 	if stats.current_mana >= ability.mana_cost:
 		stats.current_mana -= ability.mana_cost
 		target.receive_damage(ability.damage)
+		heal(ability.healing)
 		print("Usaste la habilidad: ", ability.name, " e hiciste ", ability.damage, " de daño.")
+		print("Recuperaste: ", ability.healing, " HP.")
+		
+		var bloodbite_scene = get_tree().get_root().get_node("battlescene_UI/BloodBite")
+		if bloodbite_scene:
+			var anim_sprite = bloodbite_scene.get_node_or_null("AnimatedSprite2D")
+			anim_sprite.play("default")
+		else:
+			print("No se encontró bloodbite en la escena.")
 	else:
 		print("No hay suficiente maná para usar ", ability.name)
