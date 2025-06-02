@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="TFGDungeonCrawler"
-run/main_scene="res://scenes/dungeon.tscn"
+run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameManager="*res://scenes/game_manager.tscn"
+SaveManager="*res://scripts/SaveManager.gd"
 
 [display]
 

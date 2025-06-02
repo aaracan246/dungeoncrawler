@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=4 uid="uid://dm3uhqmvley7u"]
+[gd_scene load_steps=16 format=4 uid="uid://dm3uhqmvley7u"]
 
 [ext_resource type="PackedScene" uid="uid://c48gr184355k3" path="res://scenes/dungeon.tscn" id="1_7roh8"]
 [ext_resource type="Texture2D" uid="uid://b2equcikk7l82" path="res://assets/props/UI/GUI/GUI_2x.png" id="1_l2kbi"]
 [ext_resource type="Texture2D" uid="uid://c1d0mfs5mkv7s" path="res://assets/chars/Portraits-Priscilla.png" id="1_oyg1j"]
+[ext_resource type="Script" path="res://scenes/save_button.gd" id="1_vah0x"]
 [ext_resource type="PackedScene" uid="uid://dnuswuaxl0e6d" path="res://player.tscn" id="2_1j3rq"]
 [ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="2_85qyh"]
 [ext_resource type="Texture2D" uid="uid://csyj32wsowxi4" path="res://assets/props/UI/GUI/GUI_1x.png" id="4_u1fpk"]
@@ -705,6 +706,7 @@ anchor_bottom = 1.0
 offset_right = 400.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -713,8 +715,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 125
+
+[node name="SaveButton" type="Button" parent="MarginContainer"]
+z_index = 15
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = " 🖫 "
+script = ExtResource("1_vah0x")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
 z_index = -5
@@ -735,6 +747,7 @@ offset_right = 276.0
 offset_bottom = 262.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/VBoxContainer2/BackgroundGame/SubViewportContainer"]
 handle_input_locally = false
@@ -745,6 +758,7 @@ render_target_update_mode = 4
 
 [node name="Player" parent="MarginContainer/VBoxContainer2/BackgroundGame/SubViewportContainer/SubViewport" instance=ExtResource("2_1j3rq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+visible = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -862,3 +876,5 @@ offset_top = 140.0
 offset_right = 54.0
 offset_bottom = 163.0
 text = "25"
+
+[connection signal="pressed" from="MarginContainer/SaveButton" to="MarginContainer/SaveButton" method="_on_pressed"]

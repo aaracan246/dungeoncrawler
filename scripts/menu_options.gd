@@ -6,10 +6,6 @@ func _ready():
 	var newGameButton = get_node("MarginContainer/Options/NewGame")
 	var quitButton = get_node("MarginContainer/Options/Quit")
 	
-	#continueButton.pressed.connect(_on_continue_pressed)
-	#newGameButton.pressed.connect(_on_new_game_pressed)
-	#quitButton.pressed.connect(_on_quit_pressed)
-	
 	if not has_saved_game():
 		continueButton.disabled = true
 
@@ -21,6 +17,7 @@ func _on_continue_pressed():
 
 func _on_new_game_pressed():
 	print("Iniciando nueva partida...")
+	SaveManager.clear_save()  
 	get_tree().change_scene_to_file("res://scenes/ui.tscn")
 
 func _on_quit_pressed():
@@ -32,4 +29,5 @@ func has_saved_game() -> bool:
 
 func load_saved_game():
 	print("Cargando partida guardada...")
-	get_tree().change_scene_to_file("res://scenes/Level1.tscn")  
+	SaveManager.load_game() 
+	

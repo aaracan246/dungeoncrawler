@@ -1,7 +1,7 @@
 extends Camera3D
 
-@export var loop_distance: float = 20.0
-@export var speed: float = 1.5
+@export var loop_distance: float = 35.0
+@export var speed: float = 1.0
 @export var move_direction: Vector3 = Vector3.FORWARD
 @export var fade_duration: float = 0.1
 
