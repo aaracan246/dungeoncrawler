@@ -18,7 +18,8 @@ func _on_continue_pressed():
 func _on_new_game_pressed():
 	print("Iniciando nueva partida...")
 	SaveManager.clear_save()  
-	get_tree().change_scene_to_file("res://scenes/ui.tscn")
+	LoadingScreen.load_scene_async("res://scenes/ui.tscn")
+	LoadingScreen.show_loading_screen(1.0)
 
 func _on_quit_pressed():
 	print("Saliendo del juego...")
@@ -29,5 +30,7 @@ func has_saved_game() -> bool:
 
 func load_saved_game():
 	print("Cargando partida guardada...")
+	await LoadingScreen.show_loading_screen(1.0)
 	SaveManager.load_game() 
+	LoadingScreen.hide_loading_screen()
 	

@@ -56,6 +56,7 @@ func move_toward_position(delta):
 		
 		#Check de combate
 		if randf() < combat_chance:
+			#LoadingScreen.
 			emit_signal("battle_triggered")
 
 func rotate_toward_target(delta):

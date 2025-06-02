@@ -40,6 +40,8 @@ func start_battle():
 
 	emit_signal("battle_started")
 
+	await LoadingScreen.show_loading_screen(1.0)
+	
 	# Cambiamos a escena de batalla
 	get_tree().change_scene_to_file("res://scenes/battlescene_ui.tscn")
 
@@ -48,6 +50,10 @@ func start_battle():
 	#end_battle()
 	await get_tree().process_frame
 	await get_tree().process_frame 
+	
+	LoadingScreen.hide_loading_screen()
+	
+	
 	var combat_manager = get_tree().current_scene.get_node_or_null("combatManager")
 	if combat_manager:
 		combat_manager.connect("battle_ended", Callable(self, "_on_battle_ended"))
@@ -60,7 +66,9 @@ func end_battle():
 	if saved_scene_pack == null:
 		push_error("No hay estado guardado para restaurar")
 		return
-
+	
+	await LoadingScreen.show_loading_screen(1.0)
+	
 	# Eliminamos escena actual (la de batalla)
 	var current = get_tree().current_scene
 	if current:
@@ -83,7 +91,9 @@ func end_battle():
 		players[0].global_transform = previous_player_transform
 	else:
 		print("No se encontró ningún nodo con el grupo 'player'")
-
+	
+	LoadingScreen.hide_loading_screen()
+	
 	emit_signal("battle_ended")
 
 func _on_battle_ended(winner: String):

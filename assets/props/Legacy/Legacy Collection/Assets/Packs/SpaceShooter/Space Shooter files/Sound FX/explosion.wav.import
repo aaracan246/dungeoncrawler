@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b5owc5bduioyg"
+path="res://.godot/imported/explosion.wav-143b4b8662f6453156a34c4b9b93975a.sample"
+
+[deps]
+
+source_file="res://assets/props/Legacy/Legacy Collection/Assets/Packs/SpaceShooter/Space Shooter files/Sound FX/explosion.wav"
+dest_files=["res://.godot/imported/explosion.wav-143b4b8662f6453156a34c4b9b93975a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

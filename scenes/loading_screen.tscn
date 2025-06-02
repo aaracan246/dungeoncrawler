@@ -1,0 +1,110 @@
+[gd_scene load_steps=12 format=3 uid="uid://db7os5t16ea4x"]
+
+[ext_resource type="Script" path="res://scenes/loading_screen.gd" id="1_3xa8q"]
+[ext_resource type="Texture2D" uid="uid://cx2dli0yb8ux0" path="res://assets/props/Legacy/Legacy Collection/Assets/Characters/Dancing Girl Files/spritesheets/skip.png" id="2_p6k81"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ux312"]
+atlas = ExtResource("2_p6k81")
+region = Rect2(0, 0, 39, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd2ts"]
+atlas = ExtResource("2_p6k81")
+region = Rect2(39, 0, 39, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl3xj"]
+atlas = ExtResource("2_p6k81")
+region = Rect2(78, 0, 39, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnabq"]
+atlas = ExtResource("2_p6k81")
+region = Rect2(117, 0, 39, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7wbr"]
+atlas = ExtResource("2_p6k81")
+region = Rect2(156, 0, 39, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r443c"]
+atlas = ExtResource("2_p6k81")
+region = Rect2(195, 0, 39, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo6vi"]
+atlas = ExtResource("2_p6k81")
+region = Rect2(234, 0, 39, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqh21"]
+atlas = ExtResource("2_p6k81")
+region = Rect2(273, 0, 39, 53)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ew5ll"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ux312")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd2ts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vl3xj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnabq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7wbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r443c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jo6vi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqh21")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="LoadingScreen" type="Control"]
+z_index = 500
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3xa8q")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -41.0
+offset_top = -16.0
+offset_right = 34.0
+offset_bottom = 7.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+text = "Loading..."
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect"]
+position = Vector2(295, 208)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_ew5ll")
+autoplay = "default"
+frame_progress = 0.43543
