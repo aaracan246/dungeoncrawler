@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://db7os5t16ea4x"]
 
-[ext_resource type="Script" path="res://scenes/loading_screen.gd" id="1_3xa8q"]
+[ext_resource type="Script" path="res://scripts/loading_screen.gd" id="1_3xa8q"]
 [ext_resource type="Texture2D" uid="uid://cx2dli0yb8ux0" path="res://assets/props/Legacy/Legacy Collection/Assets/Characters/Dancing Girl Files/spritesheets/skip.png" id="2_p6k81"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ux312"]

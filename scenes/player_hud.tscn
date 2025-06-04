@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6xb60kf5greb"]
+
+[ext_resource type="Script" path="res://scripts/player_hud.gd" id="1_w5jiu"]
+[ext_resource type="Texture2D" uid="uid://yfsea0rb1hn1" path="res://assets/chars/Portraits-Priscilla64.png" id="2_l1ej1"]
+
+[node name="PlayerHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w5jiu")
+
+[node name="Portrait" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_l1ej1")
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Priscilla"
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+show_percentage = false

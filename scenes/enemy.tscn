@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bicct4ldobpiq"]
 
-[ext_resource type="Script" path="res://scenes/battle_enemy.gd" id="1_tkplg"]
+[ext_resource type="Script" path="res://scripts/battle_enemy.gd" id="1_tkplg"]
 [ext_resource type="Texture2D" uid="uid://bqwpyldg0mqys" path="res://assets/props/Enemies-BoboTheHobo192.png" id="2_bh5t8"]
 
 [node name="HobGob" type="Node3D"]

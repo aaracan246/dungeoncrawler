@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://citof13tii0sq" path="res://scenes/battle.tscn" id="2_su243"]
 [ext_resource type="PackedScene" uid="uid://d2rh6dfunt55x" path="res://scenes/player_battle.tscn" id="3_s2kjw"]
 [ext_resource type="PackedScene" uid="uid://bicct4ldobpiq" path="res://scenes/enemy.tscn" id="4_xilsy"]
-[ext_resource type="Script" path="res://scenes/combat_manager.gd" id="5_0k5gk"]
-[ext_resource type="Script" path="res://char_stats.gd" id="5_e27de"]
+[ext_resource type="Script" path="res://scripts/combat_manager.gd" id="5_0k5gk"]
+[ext_resource type="Script" path="res://scripts/char_stats.gd" id="5_e27de"]
 [ext_resource type="Resource" uid="uid://cqyt442px205y" path="res://inventory/player_inv.tres" id="6_gp66t"]
 [ext_resource type="Script" path="res://scripts/Ability.gd" id="7_nt64r"]
 [ext_resource type="PackedScene" uid="uid://cu2ef3f5vvi15" path="res://scenes/blood_bite_anim.tscn" id="10_nechi"]
@@ -31,8 +31,8 @@ healing = 20
 
 [sub_resource type="Resource" id="Resource_b61m0"]
 script = ExtResource("5_e27de")
-max_hp = 25
-current_hp = 25
+max_hp = 105
+current_hp = 105
 max_mana = 100
 current_mana = 100
 attack = 15

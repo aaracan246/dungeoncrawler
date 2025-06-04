@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=4 uid="uid://dm3uhqmvley7u"]
+[gd_scene load_steps=17 format=4 uid="uid://dm3uhqmvley7u"]
 
 [ext_resource type="PackedScene" uid="uid://c48gr184355k3" path="res://scenes/dungeon.tscn" id="1_7roh8"]
 [ext_resource type="Texture2D" uid="uid://b2equcikk7l82" path="res://assets/props/UI/GUI/GUI_2x.png" id="1_l2kbi"]
 [ext_resource type="Texture2D" uid="uid://c1d0mfs5mkv7s" path="res://assets/chars/Portraits-Priscilla.png" id="1_oyg1j"]
-[ext_resource type="Script" path="res://scenes/save_button.gd" id="1_vah0x"]
-[ext_resource type="PackedScene" uid="uid://dnuswuaxl0e6d" path="res://player.tscn" id="2_1j3rq"]
+[ext_resource type="Script" path="res://scripts/save_button.gd" id="1_vah0x"]
+[ext_resource type="PackedScene" uid="uid://dnuswuaxl0e6d" path="res://scenes/player.tscn" id="2_1j3rq"]
+[ext_resource type="Script" path="res://scripts/encounter_manager.gd" id="2_3kagw"]
 [ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="2_85qyh"]
 [ext_resource type="Texture2D" uid="uid://csyj32wsowxi4" path="res://assets/props/UI/GUI/GUI_1x.png" id="4_u1fpk"]
 
@@ -727,6 +728,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 text = " 🖫 "
 script = ExtResource("1_vah0x")
+
+[node name="EncounterManager" type="Node" parent="MarginContainer"]
+script = ExtResource("2_3kagw")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
 z_index = -5
