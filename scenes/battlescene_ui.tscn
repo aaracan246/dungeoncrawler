@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://xvq64rec74h"]
+[gd_scene load_steps=17 format=3 uid="uid://xvq64rec74h"]
 
 [ext_resource type="PackedScene" uid="uid://cvyuqa3jkmfbd" path="res://scenes/floating_text.tscn" id="1_03fji"]
 [ext_resource type="PackedScene" uid="uid://f0qe82uwfl57" path="res://scenes/combat_ui.tscn" id="1_ewcrw"]
+[ext_resource type="Script" path="res://scenes/battlescene_ui.gd" id="1_vqbk2"]
 [ext_resource type="PackedScene" uid="uid://0g3jxoqils0t" path="res://scenes/inventory.tscn" id="2_3fyvf"]
 [ext_resource type="PackedScene" uid="uid://citof13tii0sq" path="res://scenes/battle.tscn" id="2_su243"]
 [ext_resource type="PackedScene" uid="uid://d2rh6dfunt55x" path="res://scenes/player_battle.tscn" id="3_s2kjw"]
@@ -10,23 +11,14 @@
 [ext_resource type="Script" path="res://scripts/char_stats.gd" id="5_e27de"]
 [ext_resource type="Resource" uid="uid://cqyt442px205y" path="res://inventory/player_inv.tres" id="6_gp66t"]
 [ext_resource type="Script" path="res://scripts/Ability.gd" id="7_nt64r"]
+[ext_resource type="Resource" uid="uid://cc81wr74h1ng5" path="res://resources/player_stats.tres" id="8_kt38n"]
 [ext_resource type="PackedScene" uid="uid://cu2ef3f5vvi15" path="res://scenes/blood_bite_anim.tscn" id="10_nechi"]
 [ext_resource type="PackedScene" uid="uid://b6xb60kf5greb" path="res://scenes/player_hud.tscn" id="12_626s7"]
-
-[sub_resource type="Resource" id="Resource_kpqnj"]
-script = ExtResource("5_e27de")
-max_hp = 100
-current_hp = 100
-max_mana = 100
-current_mana = 100
-attack = 15
-defense = 5
-speed = 3
 
 [sub_resource type="Resource" id="Resource_or4n4"]
 script = ExtResource("7_nt64r")
 name = "Blood bite"
-mana_cost = 10
+mana_cost = 25
 damage = 15
 healing = 20
 
@@ -50,6 +42,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 mouse_force_pass_scroll_events = false
+script = ExtResource("1_vqbk2")
 
 [node name="FloatingText" parent="." instance=ExtResource("1_03fji")]
 z_index = 11
@@ -104,7 +97,7 @@ render_target_update_mode = 4
 script = null
 
 [node name="PlayerBattle" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_s2kjw")]
-stats = SubResource("Resource_kpqnj")
+stats = ExtResource("8_kt38n")
 inv = ExtResource("6_gp66t")
 abilities = Array[ExtResource("7_nt64r")]([SubResource("Resource_or4n4")])
 

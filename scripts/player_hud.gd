@@ -2,12 +2,16 @@ extends Control
 
 @onready var portrait: TextureRect = $MarginContainer/VBoxContainer2/HBoxContainer/Portrait
 @onready var name_label: Label = $MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/NameLabel
-@onready var health_bar: TextureProgressBar = $MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/HealthBar
-@onready var mana_bar: TextureProgressBar = $MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/ManaBar
-
-
+@onready var health_bar: ProgressBar = $MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/HealthBar
+@onready var mana_bar: ProgressBar = $MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/ManaBar
 
 var player: Node = null
+
+func _ready():
+	if player == null:
+		var auto_player = get_tree().get_first_node_in_group("player")
+		if auto_player:
+			set_player(auto_player)
 
 func set_player(player_node: Node):
 	player = player_node
@@ -21,16 +25,16 @@ func set_player(player_node: Node):
 
 func update_ui():
 	if player:
-		name_label.text = player.name
-		health_bar.max_value = player.max_health
-		health_bar.value = player.current_health
-		mana_bar.max_value = player.max_mana
-		mana_bar.value = player.current_mana
+		name_label.text = "Priscilla"
+		health_bar.max_value = PlayerEstado.max_hp
+		health_bar.value = PlayerEstado.current_hp
+		mana_bar.max_value = PlayerEstado.max_mana
+		mana_bar.value = PlayerEstado.current_mana
 
 func on_health_changed(current, max):
 	health_bar.max_value = max
 	health_bar.value = current
-	
+
 func on_mana_changed(current, max):
 	mana_bar.max_value = max
 	mana_bar.value = current

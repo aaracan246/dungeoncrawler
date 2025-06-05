@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var stats: Stats_Resource
+@export var stats: CharacterStats
 
 func take_damage(amount: int):
 	stats.current_hp = max(stats.current_hp - amount, 0)

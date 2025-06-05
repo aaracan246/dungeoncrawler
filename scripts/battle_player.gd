@@ -15,17 +15,30 @@ func attack(target: Node):
 
 func receive_damage(amount: int):
 	stats.current_hp -= amount
-	print("Jugador recibió ", amount, " de daño. HP actual: ", stats.current_hp)
+	print("Jugador recibió ", amount, " de daño. HP actual: ", stats.current_hp, " Maná actual: ", stats.current_mana)
 	emit_signal("health_changed", stats.current_hp, stats.max_hp)
+	
+	PlayerEstado.current_hp = stats.current_hp
+	PlayerEstado.max_hp = stats.max_hp
+
 
 func heal(amount: int):
 	stats.current_hp += amount
 	stats.current_hp = clamp(stats.current_hp, 0, stats.max_hp)
 	emit_signal("health_changed", stats.current_hp, stats.max_hp)
+	
+	PlayerEstado.current_hp = stats.current_hp
+	PlayerEstado.max_hp = stats.max_hp
+
 
 func restore_mana(amount: int):
 	stats.current_mana += amount
 	stats.current_mana = clamp(stats.current_mana, 0, stats.max_mana)
+	emit_signal("mana_changed", stats.current_mana, stats.max_mana)
+	
+	PlayerEstado.current_mana = stats.current_mana
+	PlayerEstado.max_mana = stats.max_mana
+
 
 func use_ability(index: int, target: Node):
 	if index >= abilities.size():
@@ -34,6 +47,7 @@ func use_ability(index: int, target: Node):
 	var ability = abilities[index]
 	if stats.current_mana >= ability.mana_cost:
 		stats.current_mana -= ability.mana_cost
+		emit_signal("mana_changed", stats.current_mana, stats.max_mana)
 		target.receive_damage(ability.damage)
 		heal(ability.healing)
 		print("Usaste la habilidad: ", ability.name, " e hiciste ", ability.damage, " de daño.")

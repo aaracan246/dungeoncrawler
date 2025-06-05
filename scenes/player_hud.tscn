@@ -1,8 +1,14 @@
-[gd_scene load_steps=8 format=4 uid="uid://b6xb60kf5greb"]
+[gd_scene load_steps=10 format=4 uid="uid://b6xb60kf5greb"]
 
 [ext_resource type="Script" path="res://scripts/player_hud.gd" id="1_w5jiu"]
 [ext_resource type="Texture2D" uid="uid://yfsea0rb1hn1" path="res://assets/chars/Portraits-Priscilla64.png" id="2_l1ej1"]
 [ext_resource type="Texture2D" uid="uid://cgqspwb3qryd0" path="res://assets/props/UI-RPG/UI assets (3x).png" id="3_pe4qs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_juuii"]
+bg_color = Color(0.363329, 0.618797, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l48mb"]
+bg_color = Color(0.218194, 0.000580649, 0.883894, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s0dxe"]
 texture = ExtResource("3_pe4qs")
@@ -22406,6 +22412,7 @@ theme_override_constants/separation = 10
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -22415,13 +22422,23 @@ theme_override_constants/separation = 10
 layout_mode = 2
 text = "Priscilla"
 
-[node name="HealthBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="HealthBar" type="ProgressBar" parent="MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+z_index = 15
+custom_minimum_size = Vector2(100, 5)
 layout_mode = 2
-tint_under = Color(8.90419e-07, 0.587142, 1.15514e-06, 1)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/fill = SubResource("StyleBoxFlat_juuii")
+show_percentage = false
 
-[node name="ManaBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="ManaBar" type="ProgressBar" parent="MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+z_index = 15
+custom_minimum_size = Vector2(100, 5)
 layout_mode = 2
-tint_under = Color(0, 0, 1, 1)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/fill = SubResource("StyleBoxFlat_l48mb")
+show_percentage = false
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -1

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dm3uhqmvley7u"]
+[gd_scene load_steps=7 format=3 uid="uid://dm3uhqmvley7u"]
 
 [ext_resource type="PackedScene" uid="uid://c48gr184355k3" path="res://scenes/dungeon.tscn" id="1_7roh8"]
 [ext_resource type="Script" path="res://scripts/save_button.gd" id="1_vah0x"]
 [ext_resource type="PackedScene" uid="uid://dnuswuaxl0e6d" path="res://scenes/player.tscn" id="2_1j3rq"]
 [ext_resource type="Script" path="res://scripts/encounter_manager.gd" id="2_3kagw"]
+[ext_resource type="Resource" uid="uid://cc81wr74h1ng5" path="res://resources/player_stats.tres" id="5_07fmx"]
 [ext_resource type="PackedScene" uid="uid://b6xb60kf5greb" path="res://scenes/player_hud.tscn" id="5_griry"]
 
 [node name="UI" type="Control"]
@@ -69,7 +70,7 @@ render_target_update_mode = 4
 
 [node name="Player" parent="MarginContainer/VBoxContainer2/BackgroundGame/SubViewportContainer/SubViewport" instance=ExtResource("2_1j3rq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-visible = false
+stats = ExtResource("5_07fmx")
 
 [node name="PlayerHUD" parent="." instance=ExtResource("5_griry")]
 layout_mode = 1
