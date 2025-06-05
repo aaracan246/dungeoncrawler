@@ -2,6 +2,7 @@ extends Node3D
 class_name battle_player
 
 signal health_changed(current, max)
+signal mana_changed(current, max)
 
 @export var stats: CharacterStats
 @export var inv: Inv
