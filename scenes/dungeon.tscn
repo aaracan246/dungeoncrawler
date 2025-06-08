@@ -75,3 +75,10 @@ texture = ExtResource("3_fxu63")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Sprite3D9"]
 transform = Transform3D(3.72884, 2.99758, 8.78125, 3.23962, 8.44765, -4.25936, -8.69486, 4.43303, 2.17889, 0.149748, 0.73677, 0.750309)
+
+[node name="Sprite3D10" type="Sprite3D" parent="."]
+transform = Transform3D(-0.0242702, 0.0107364, 0.0964142, 0.0445307, 0.0895292, 0.00123996, -0.0861857, 0.0432348, -0.0265099, -17.0253, 1.77164, -17.9036)
+texture = ExtResource("3_fxu63")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Sprite3D10"]
+transform = Transform3D(3.72884, 2.99758, 8.78125, 3.23962, 8.44765, -4.25936, -8.69486, 4.43303, 2.17889, 0.149748, 0.73677, 0.750309)

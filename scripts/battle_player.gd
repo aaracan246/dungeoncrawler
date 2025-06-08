@@ -11,6 +11,7 @@ signal mana_changed(current, max)
 func attack(target: Node):
 	var damage = stats.attack - target.stats.defense
 	damage = max(damage, 0)
+	ApiGlobal.send_score("Yops", 200)
 	target.receive_damage(damage)
 
 func receive_damage(amount: int):

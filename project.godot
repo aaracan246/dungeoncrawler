@@ -21,6 +21,7 @@ GameManager="*res://scenes/game_manager.tscn"
 SaveManager="*res://scripts/SaveManager.gd"
 LoadingScreen="*res://scripts/loading_screen.gd"
 PlayerEstado="*res://Player_state.gd"
+ApiGlobal="*res://API_global.gd"
 
 [display]
 
