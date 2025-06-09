@@ -18,7 +18,7 @@ func _on_continue_pressed():
 func _on_new_game_pressed():
 	print("Iniciando nueva partida...")
 	SaveManager.clear_save()  
-	LoadingScreen.load_scene_async("res://scenes/ui.tscn")
+	LoadingScreen.load_scene_async("res://scenes/prologue.tscn")
 	LoadingScreen.show_loading_screen(1.0)
 
 func _on_quit_pressed():
