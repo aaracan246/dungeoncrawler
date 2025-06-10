@@ -4,66 +4,68 @@ extends Control
 @onready var texto_der := $MarginContainer2/RichTextLabelRight
 
 var bloques := [
-	"""Hace quinientos años, el Reino de Dungard se salvó de la oscuridad.
+	"""Hace quinientos años, el Reino de Dungard se salvó de la oscuridad.""",
 
-Un héroe legendario selló la mazmorra, un laberinto sin fin del que emergen criaturas que solo traen desolación.
+"""Un héroe legendario selló la mazmorra, un laberinto sin fin del que emergen oscuras criaturas.""",
 
-Pero el sello se debilita... y la rueda del tiempo ha vuelto a girar...
-""",
-	"""El rey ha convocado a caballeros, mercenarios y aventureros de todas partes.
+"""Pero el sello se debilita... y la rueda del tiempo ha vuelto a girar...""",
 
-Quien logre sellarla de nuevo, obtendrá riquezas, honor... y una historia que sobrevivirá al tiempo.
+	"""El rey ha convocado a caballeros, mercenarios y aventureros de todas partes.""",
 
-Pero nadie ha regresado del laberinto.
+"""Quien logre sellarla de nuevo, obtendrá riquezas, honor... y una historia que contar.""",
+
+"""Pero nadie ha regresado del laberinto.
 """,
 	"""Tú no buscas la gloria.
 
-Buscas la recompensa.
+Buscas la recompensa.""",
 
-Así que te adentras en la mazmorra...
+"""Así que te adentras en la mazmorra...
 """
 ]
 
 var bloque_actual := 0
-var indice := 0
 var velocidad := 0.05
 var escribiendo := false
+var salto_escritura := false
 
 func _ready():
-	mostrar_bloques()
-
-func _unhandled_input(event):
-	if escribiendo:
-		return
-
-	if event is InputEventMouseButton and event.pressed or event.is_action_pressed("ui_accept"):
-		avanzar_bloques()
-
-func mostrar_bloques():
-	escribiendo = true
 	texto_izq.clear()
 	texto_der.clear()
-	indice = 0
+	mostrar_bloque()
 
-	match bloque_actual:
-		0:
-			await escribir(texto_izq, bloques[0])
-			await escribir(texto_der, bloques[1])
-			escribiendo = false
-		1:
-			await escribir(texto_izq, bloques[2])
-			escribiendo = false
-		_:
-			escribiendo = false
+func _unhandled_input(event):
+	if event is InputEventMouseButton and event.pressed or event.is_action_pressed("ui_accept"):
+		if escribiendo:
+			salto_escritura = true
+		else:
+			avanzar_bloques()
+
+func mostrar_bloque():
+	if bloque_actual >= bloques.size():
+		LoadingScreen.load_scene_async("res://scenes/ui.tscn")
+		return
+
+	var label := texto_izq if bloque_actual % 2 == 0 else texto_der
+	var otro_label := texto_der if label == texto_izq else texto_izq
+
+	label.clear() 
+	escribiendo = true
+	salto_escritura = false
+	await escribir(label, bloques[bloque_actual])
+	escribiendo = false
 
 func avanzar_bloques():
 	bloque_actual += 1
-	if bloque_actual < 2:
-		mostrar_bloques()
-	else:
-		LoadingScreen.load_scene_async("res://scenes/ui.tscn")
+	mostrar_bloque()
 
 func escribir(label: RichTextLabel, texto_completo: String) -> void:
-	for i in texto_completo:
-		label.append_text(i)
+	label.clear()
+	var i := 0
+	while i < texto_completo.length():
+		if salto_escritura:
+			label.text = texto_completo
+			return
+		label.append_text(texto_completo[i])
 		await get_tree().create_timer(velocidad).timeout
+		i += 1
