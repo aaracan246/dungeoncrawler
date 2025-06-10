@@ -2,6 +2,7 @@ extends Node3D
 class_name battle_enemy
 
 @export var stats: CharacterStats
+@onready var visual := $Sprite3D
 
 func _ready():
 	stats.current_hp = stats.max_hp
@@ -19,6 +20,7 @@ func special_attack(target: Node):
 
 func receive_damage(amount: int):
 	stats.current_hp -= amount
+	red_splash()
 	show_damage_text(amount)
 	print("Enemigo recibió ", amount, " de daño. HP actual: ", stats.current_hp)
 
@@ -28,3 +30,11 @@ func show_damage_text(amount: int):
 		floating_text.start(str(amount), Vector2(160, 108))
 	else:
 		print("No se ha encontrado el nodo requerido.")
+
+func red_splash():
+	if not visual:
+		return
+
+	visual.modulate = Color(1, 0, 0) 
+	await get_tree().create_timer(0.15).timeout
+	visual.modulate = Color(1, 1, 1) 
