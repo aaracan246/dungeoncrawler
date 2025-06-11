@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgxbnxswtv7w6"
+path="res://.godot/imported/oppressive sound.mp3-18d58fb784f8a7a569522cc5b7ca71cb.mp3str"
+
+[deps]
+
+source_file="res://assets/music/oppressive sound.mp3"
+dest_files=["res://.godot/imported/oppressive sound.mp3-18d58fb784f8a7a569522cc5b7ca71cb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

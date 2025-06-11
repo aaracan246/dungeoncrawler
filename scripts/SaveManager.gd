@@ -52,7 +52,6 @@ func load_game():
 
 	print("Cargando:", scene_path)
 	
-	# Cambiar a la escena cargada
 	var error = get_tree().change_scene_to_file(scene_path)
 	if error != OK:
 		push_error("No se pudo cargar la escena: " + scene_path)

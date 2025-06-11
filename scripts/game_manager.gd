@@ -33,7 +33,7 @@ func start_battle():
 func end_battle():
 	print("Cargando estado previo a la batalla...")
 	await LoadingScreen.show_loading_screen(1.0)
-
+	ScoreManager.add_points(100)
 	await SaveManager.load_game() 
 
 	LoadingScreen.hide_loading_screen()

@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c48gr184355k3"]
+[gd_scene load_steps=6 format=3 uid="uid://c48gr184355k3"]
 
 [ext_resource type="MeshLibrary" uid="uid://jq34tdt2ldct" path="res://assets/tiles/tileset.tres" id="1_qv0ya"]
+[ext_resource type="PackedScene" uid="uid://ckui0vjr2rlil" path="res://assets/doors/medival_door_10_hrs_modified.tscn" id="3_7w5tu"]
 [ext_resource type="Texture2D" uid="uid://btug81muqvc8q" path="res://assets/props/Torch512.png" id="3_fxu63"]
+[ext_resource type="Script" path="res://scripts/exit_level.gd" id="4_uvgf1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kcvoi"]
 
 [node name="Dungeon" type="Node3D"]
 
@@ -82,3 +86,14 @@ texture = ExtResource("3_fxu63")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Sprite3D10"]
 transform = Transform3D(3.72884, 2.99758, 8.78125, 3.23962, 8.44765, -4.25936, -8.69486, 4.43303, 2.17889, 0.149748, 0.73677, 0.750309)
+
+[node name="MedivalDoor10hrs" parent="." instance=ExtResource("3_7w5tu")]
+transform = Transform3D(0.930629, 0, 0, 0, 0.892079, 0, 0, 0, 1, -6.02516, 0, -23.0182)
+
+[node name="ExitLevel" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.15715, 1.212, -21.9373)
+script = ExtResource("4_uvgf1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitLevel"]
+transform = Transform3D(3.15389, 0, 0, 0, 3.2808, 0, 0, 0, 1, 0.170405, 0.316865, -0.0942173)
+shape = SubResource("BoxShape3D_kcvoi")

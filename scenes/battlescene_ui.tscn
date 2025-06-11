@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://xvq64rec74h"]
+[gd_scene load_steps=18 format=3 uid="uid://xvq64rec74h"]
 
 [ext_resource type="PackedScene" uid="uid://cvyuqa3jkmfbd" path="res://scenes/floating_text.tscn" id="1_03fji"]
 [ext_resource type="PackedScene" uid="uid://f0qe82uwfl57" path="res://scenes/combat_ui.tscn" id="1_ewcrw"]
@@ -14,18 +14,19 @@
 [ext_resource type="Resource" uid="uid://cc81wr74h1ng5" path="res://resources/player_stats.tres" id="8_kt38n"]
 [ext_resource type="PackedScene" uid="uid://cu2ef3f5vvi15" path="res://scenes/blood_bite_anim.tscn" id="10_nechi"]
 [ext_resource type="PackedScene" uid="uid://b6xb60kf5greb" path="res://scenes/player_hud.tscn" id="12_626s7"]
+[ext_resource type="AudioStream" uid="uid://cgucefdol32hy" path="res://assets/music/Félix battle theme.mp3" id="15_ww8w3"]
 
 [sub_resource type="Resource" id="Resource_or4n4"]
 script = ExtResource("7_nt64r")
 name = "Blood bite"
 mana_cost = 25
-damage = 15
+damage = 25
 healing = 20
 
 [sub_resource type="Resource" id="Resource_b61m0"]
 script = ExtResource("5_e27de")
-max_hp = 105
-current_hp = 105
+max_hp = 90
+current_hp = 90
 max_mana = 100
 current_mana = 100
 attack = 15
@@ -68,10 +69,10 @@ layout_mode = 1
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 225.44
-offset_top = 175.96
-offset_right = 225.44
-offset_bottom = 175.96
+offset_left = 228.0
+offset_top = 174.105
+offset_right = 228.0
+offset_bottom = 174.105
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.5, 0.5)
@@ -130,6 +131,11 @@ offset_top = 42.66
 offset_bottom = 42.66
 grow_horizontal = 1
 scale = Vector2(0.65, 0.65)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_ww8w3")
+volume_db = -30.0
+autoplay = true
 
 [connection signal="ability_pressed" from="combat_UI" to="combatManager" method="_on_ability_pressed"]
 [connection signal="attack_pressed" from="combat_UI" to="combatManager" method="_on_attack_pressed"]

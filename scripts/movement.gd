@@ -8,7 +8,7 @@ signal step_completed
 
 @export var inv: Inv
 
-@export var combat_chance: float = 0.05
+#@export var combat_chance: float = 0.05
 
 var moving: bool = false
 var rotating: bool = false

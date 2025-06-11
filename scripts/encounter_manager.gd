@@ -1,6 +1,6 @@
 extends Node
 
-@export var combat_chance: float = 0.05
+@export var combat_chance: float = 0.01
 
 func _ready():
 	await wait_for_player()

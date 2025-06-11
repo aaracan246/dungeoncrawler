@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckui0vjr2rlil"]
+
+[ext_resource type="PackedScene" uid="uid://cw0yvj4e1nn0a" path="res://assets/doors/MedivalDoor10hrs.fbx" id="1_j7gtt"]
+
+[node name="MedivalDoor10hrs" instance=ExtResource("1_j7gtt")]

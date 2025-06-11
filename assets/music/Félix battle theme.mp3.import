@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cgucefdol32hy"
+path="res://.godot/imported/Félix battle theme.mp3-ee067423200c30f55dc54f42c7b3e971.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Félix battle theme.mp3"
+dest_files=["res://.godot/imported/Félix battle theme.mp3-ee067423200c30f55dc54f42c7b3e971.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

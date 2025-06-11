@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://cu2ef3f5vvi15"]
+[gd_scene load_steps=21 format=3 uid="uid://cu2ef3f5vvi15"]
 
 [ext_resource type="Texture2D" uid="uid://bco17hwi78r40" path="res://assets/spriteAnims/Super Pixel Effects Pack 3/spritesheet/fx3_bite_large_red/spritesheet.png" id="1_rjmjk"]
+[ext_resource type="AudioStream" uid="uid://c0wfvnpcsjugc" path="res://assets/music/Creature Bite Sound Effect.mp3" id="2_gvksj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_73vbr"]
 atlas = ExtResource("1_rjmjk")
@@ -144,3 +145,6 @@ frame = 18
 frame_progress = 1.0
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gvksj")

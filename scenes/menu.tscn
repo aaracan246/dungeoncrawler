@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3hbw0lvxq02d"]
+[gd_scene load_steps=5 format=3 uid="uid://d3hbw0lvxq02d"]
 
 [ext_resource type="PackedScene" uid="uid://d10244sk3xgmq" path="res://scenes/hallway_for_menu.tscn" id="1_7pa4g"]
 [ext_resource type="Script" path="res://scripts/menu_options.gd" id="1_41c3t"]
+[ext_resource type="Texture2D" uid="uid://bdn5p07jhn5jb" path="res://assets/props/20250609_2115_Logo_Retro_Dungeoncrawler_simple_compose_01jxb1shbre2nb4pkx4k8sfarc-removebg-preview.png" id="2_0jcfr"]
+[ext_resource type="AudioStream" uid="uid://delner1k2t4ej" path="res://assets/music/Souls of Fire - DS1 theme.mp3" id="4_kk07a"]
 
 [node name="Menu" type="Control"]
 z_index = 5
@@ -22,8 +24,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 35
-theme_override_constants/margin_top = 70
+theme_override_constants/margin_top = 115
 theme_override_constants/margin_right = 35
+
+[node name="Title" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(161.75, 50.005)
+scale = Vector2(0.19247, 0.166176)
+texture = ExtResource("2_0jcfr")
 
 [node name="Options" type="VBoxContainer" parent="MarginContainer"]
 z_index = 10
@@ -59,6 +66,11 @@ handle_input_locally = false
 render_target_update_mode = 4
 
 [node name="HallwayForMenu" parent="Node3D/SubViewportContainer/SubViewport" instance=ExtResource("1_7pa4g")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_kk07a")
+volume_db = -30.0
+autoplay = true
 
 [connection signal="pressed" from="MarginContainer/Options/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="MarginContainer/Options/NewGame" to="." method="_on_new_game_pressed"]

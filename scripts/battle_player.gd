@@ -8,10 +8,12 @@ signal mana_changed(current, max)
 @export var inv: Inv
 @export var abilities: Array[Ability]
 
+func _ready() -> void:
+	stats.current_mana = stats.max_mana
+
 func attack(target: Node):
 	var damage = stats.attack - target.stats.defense
 	damage = max(damage, 0)
-	ApiGlobal.send_score("Yops", 200)
 	target.receive_damage(damage)
 
 func receive_damage(amount: int):
@@ -55,9 +57,12 @@ func use_ability(index: int, target: Node):
 		print("Recuperaste: ", ability.healing, " HP.")
 		
 		var bloodbite_scene = get_tree().get_root().get_node("battlescene_UI/BloodBite")
+		var audio_player = bloodbite_scene.get_node_or_null("AudioStreamPlayer")
 		if bloodbite_scene:
 			var anim_sprite = bloodbite_scene.get_node_or_null("AnimatedSprite2D")
 			anim_sprite.play("default")
+		if audio_player:
+				audio_player.play()
 		else:
 			print("No se encontró bloodbite en la escena.")
 	else:

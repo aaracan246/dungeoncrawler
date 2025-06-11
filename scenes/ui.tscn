@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dm3uhqmvley7u"]
+[gd_scene load_steps=9 format=3 uid="uid://dm3uhqmvley7u"]
 
 [ext_resource type="PackedScene" uid="uid://c48gr184355k3" path="res://scenes/dungeon.tscn" id="1_7roh8"]
 [ext_resource type="Script" path="res://scripts/save_button.gd" id="1_vah0x"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://scripts/encounter_manager.gd" id="2_3kagw"]
 [ext_resource type="Resource" uid="uid://cc81wr74h1ng5" path="res://resources/player_stats.tres" id="5_07fmx"]
 [ext_resource type="PackedScene" uid="uid://b6xb60kf5greb" path="res://scenes/player_hud.tscn" id="5_griry"]
+[ext_resource type="AudioStream" uid="uid://bgxbnxswtv7w6" path="res://assets/music/oppressive sound.mp3" id="7_wxx8f"]
+[ext_resource type="Script" path="res://scenes/score_ui.gd" id="8_3grqb"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -82,5 +84,24 @@ offset_top = 27.0
 offset_bottom = 27.0
 grow_horizontal = 1
 scale = Vector2(0.75, 0.75)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_wxx8f")
+volume_db = -50.0
+autoplay = true
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 148.0
+offset_top = 6.0
+offset_right = -529.0
+offset_bottom = -211.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+script = ExtResource("8_3grqb")
 
 [connection signal="pressed" from="MarginContainer/SaveButton" to="MarginContainer/SaveButton" method="_on_pressed"]
