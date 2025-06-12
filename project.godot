@@ -13,7 +13,8 @@ config_version=5
 config/name="TFGDungeonCrawler"
 run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/props/20250609_2115_Logo_Retro_Dungeoncrawler_simple_compose_01jxb1shbre2nb4pkx4k8sfarc-removebg-preview.png"
+config/windows_native_icon="res://assets/props/20250609_2115_Logo_Retro_Dungeoncrawler_simple_compose_01jxb1shbre2nb4pkx4k8sfarc-removebg-preview.ico"
 
 [autoload]
 
