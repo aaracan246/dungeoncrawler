@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dm3uhqmvley7u"]
+[gd_scene load_steps=10 format=3 uid="uid://dm3uhqmvley7u"]
 
 [ext_resource type="PackedScene" uid="uid://c48gr184355k3" path="res://scenes/dungeon.tscn" id="1_7roh8"]
 [ext_resource type="Script" path="res://scripts/save_button.gd" id="1_vah0x"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b6xb60kf5greb" path="res://scenes/player_hud.tscn" id="5_griry"]
 [ext_resource type="AudioStream" uid="uid://bgxbnxswtv7w6" path="res://assets/music/oppressive sound.mp3" id="7_wxx8f"]
 [ext_resource type="Script" path="res://scenes/score_ui.gd" id="8_3grqb"]
+[ext_resource type="PackedScene" uid="uid://bhblj3lt56578" path="res://scenes/player_stats.tscn" id="9_ggln8"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -103,5 +104,14 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "0"
 script = ExtResource("8_3grqb")
+
+[node name="PlayerStats" parent="." instance=ExtResource("9_ggln8")]
+z_index = -2
+layout_mode = 1
+offset_left = 0.545
+offset_top = 13.755
+offset_right = 0.544983
+offset_bottom = 13.755
+scale = Vector2(0.8, 0.8)
 
 [connection signal="pressed" from="MarginContainer/SaveButton" to="MarginContainer/SaveButton" method="_on_pressed"]
