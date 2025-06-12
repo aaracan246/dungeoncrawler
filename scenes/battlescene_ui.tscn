@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://xvq64rec74h"]
+[gd_scene load_steps=17 format=3 uid="uid://xvq64rec74h"]
 
 [ext_resource type="PackedScene" uid="uid://cvyuqa3jkmfbd" path="res://scenes/floating_text.tscn" id="1_03fji"]
 [ext_resource type="PackedScene" uid="uid://f0qe82uwfl57" path="res://scenes/combat_ui.tscn" id="1_ewcrw"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://d2rh6dfunt55x" path="res://scenes/player_battle.tscn" id="3_s2kjw"]
 [ext_resource type="PackedScene" uid="uid://bicct4ldobpiq" path="res://scenes/enemy.tscn" id="4_xilsy"]
 [ext_resource type="Script" path="res://scripts/combat_manager.gd" id="5_0k5gk"]
-[ext_resource type="Script" path="res://scripts/char_stats.gd" id="5_e27de"]
 [ext_resource type="Resource" uid="uid://cqyt442px205y" path="res://inventory/player_inv.tres" id="6_gp66t"]
 [ext_resource type="Script" path="res://scripts/Ability.gd" id="7_nt64r"]
 [ext_resource type="Resource" uid="uid://cc81wr74h1ng5" path="res://resources/player_stats.tres" id="8_kt38n"]
@@ -23,16 +22,6 @@ name = "Blood bite"
 mana_cost = 25
 damage = 25
 healing = 20
-
-[sub_resource type="Resource" id="Resource_b61m0"]
-script = ExtResource("5_e27de")
-max_hp = 90
-current_hp = 90
-max_mana = 100
-current_mana = 100
-attack = 15
-defense = 10
-speed = 1
 
 [node name="battlescene_UI" type="Control"]
 clip_contents = true
@@ -105,7 +94,6 @@ abilities = Array[ExtResource("7_nt64r")]([SubResource("Resource_or4n4")])
 
 [node name="HobGob" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_xilsy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59843, -3.64793)
-stats = SubResource("Resource_b61m0")
 
 [node name="Inventory" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_3fyvf")]
 z_index = 11

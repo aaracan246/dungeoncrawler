@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpylke1tp4ju2"]
+
+[ext_resource type="Texture2D" uid="uid://blcm34tjdmbay" path="res://assets/props/Enemigo (6).png" id="1_nua66"]
+
+[sub_resource type="Gradient" id="Gradient_7srrd"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hrbs8"]
+gradient = SubResource("Gradient_7srrd")
+fill_from = Vector2(1, 0)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasModulate" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_hrbs8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -195.0
+offset_top = -91.0
+offset_right = 132.0
+offset_bottom = 133.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.071, 1)
+texture = ExtResource("1_nua66")
+expand_mode = 1
